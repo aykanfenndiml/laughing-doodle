@@ -20,6 +20,23 @@
             color: #333;
             text-shadow: 2px 2px 4px #000;
         }
+        header, section, footer {
+            border: 5px solid;
+            border-image: linear-gradient(90deg, white, black);
+            border-image-slice: 1;
+            animation: borderAnimation 3s linear infinite;
+        }
+        @keyframes borderAnimation {
+            0% {
+                border-image: linear-gradient(90deg, white, black);
+            }
+            50% {
+                border-image: linear-gradient(90deg, black, white);
+            }
+            100% {
+                border-image: linear-gradient(90deg, white, black);
+            }
+        }
         header {
             background: #333;
             color: #fff;
@@ -78,7 +95,7 @@
         footer {
             text-align: center;
             padding: 1rem 0;
-            background: #333;
+            background: #000000;
             color: #fff;
             position: fixed;
             width: 100%;
@@ -131,6 +148,23 @@
         #home, #about, #reselling, #contact {
             text-shadow: none;
         }
+        .glowing-text {
+            color: #fff;
+            background: linear-gradient(90deg, grey, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px grey, 0 0 10px grey, 0 0 15px red, 0 0 20px red, 0 0 25px red, 0 0 30px red, 0 0 35px red;
+            }
+            to {
+                text-shadow: 0 0 10px grey, 0 0 20px grey, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red;
+            }
+        }
     </style>
 </head>
 <body>
@@ -150,7 +184,7 @@
 
     <section id="home">
         <h2>Home</h2>
-        <p>This is the home section of the website.</p>
+        <p>Soon.... New UI 😊</p>
     </section>
 
     <section id="about" class="premium-section">
@@ -172,26 +206,6 @@
         </div>
     </section>
 
-    <style>
-        .glowing-text {
-            color: #fff;
-            background: linear-gradient(90deg, grey, red);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px grey, 0 0 10px grey, 0 0 15px red, 0 0 20px red, 0 0 25px red, 0 0 30px red, 0 0 35px red;
-            }
-            to {
-                text-shadow: 0 0 10px grey, 0 0 20px grey, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red;
-            }
-        }
-    </style>
-
     <section id="reselling">
         <h2>Reselling</h2>
         <p>This section is about reselling all stuff. We provide the best reselling services!</p>
@@ -201,24 +215,40 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <p>If you have any questions or need further information, please feel free to contact us.</p>
-        <p>Email: <a href="mailto:info@vaultsupplier.com">info@vaultsupplier.com</a></p>
+        <p>Email: <a href="mailto:support@vaultsupplier.xyz">support@vaultsupplier.xyz</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2023 Vaultsupplier. All rights reserved.</p>
+        <p style="color: white; animation: gradientText 5s infinite linear, glow 1.5s infinite alternate;"></p>
+            &copy; 2023 Vaultsupplier. All rights reserved.
+        </p>
+        <style>
+            @keyframes gradientText {
+                0% {
+                    background: linear-gradient(90deg, white, black);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+                50% {
+                    background: linear-gradient(90deg, black, white);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+                100% {
+                    background: linear-gradient(90deg, white, black);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+            @keyframes glow {
+                from {
+                    text-shadow: 0 0 5px grey, 0 0 10px grey, 0 0 15px brown, 0 0 20px brown, 0 0 25px brown, 0 0 30px brown, 0 0 35px brown;
+                }
+                to {
+                    text-shadow: 0 0 10px grey, 0 0 20px grey, 0 0 30px brown, 0 0 40px brown, 0 0 50px brown, 0 0 60px brown, 0 0 70px brown;
+                }
+            }
+        </style>
     </footer>
-
-    <script>
-        document.addEventListener('click', function(e) {
-            var tapEffect = document.createElement('div');
-            tapEffect.className = 'tap-effect';
-            tapEffect.style.left = e.pageX - 20 + 'px';
-            tapEffect.style.top = e.pageY - 20 + 'px';
-            document.body.appendChild(tapEffect);
-            setTimeout(function() {
-                tapEffect.remove();
-            }, 600);
-        });
-    </script>
 </body>
 </html>
