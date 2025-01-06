@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaultsupplier</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'Sectar';
+            src: url('fonts/Sectar.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Sectar', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #000, #fff);
+            color: #333;
+            text-shadow: 2px 2px 4px #000;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-shadow: 2px 2px 4px #000;
+        }
+        header img {
+            max-height: 50px;
+            vertical-align: middle;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+            position: relative;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px #000;
+        }
+        nav ul li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+        nav ul li:active::after {
+            opacity: 0.5;
+        }
+        section {
+            padding: 2rem;
+            margin: 2rem 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-shadow: 2px 2px 4px #000;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .tap-effect {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: tap-animation 0.6s ease-out;
+        }
+
+        @keyframes tap-animation {
+            from {
+                transform: scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 100px; /* Adjust the size as needed */
+            height: 100px; /* Adjust the size as needed */
+        }
+        .profile-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-name {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem; /* Smaller font size */
+        }
+        #home, #about, #reselling, #contact {
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="assets/logo.jpg" alt="Vaultsupplier Logo">
+        <h1>Welcome to Vaultsupplier!</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reselling">Reselling</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://discord.gg/vaultsupplier" target="_blank">Join Discord</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <p>This is the home section of the website.</p>
+    </section>
+
+    <section id="about" class="premium-section">
+        <h2>About Us</h2>
+        <p>This section is about us. We love coding and creating cool websites!</p>
+        <div class="profile-container">
+            <div class="profile">
+                <img src="profiles/kyle.png" alt="fw._.kylito aka Kyle">
+                <p class="profile-name glowing-text">Owner: fw._.kylito aka Kyle</p>
+            </div>
+            <div class="profile">
+                <img src="profiles/krazy.png" alt="krwazyyz aka Gay">
+                <p class="profile-name glowing-text">Owner: krwazyyz aka Gay</p>
+            </div>
+            <div class="profile">
+                <img src="profiles/tawheed.png" alt="tawheedwarrior">
+                <p class="profile-name glowing-text">Developer: tawheedwarrior</p>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .glowing-text {
+            color: #fff;
+            background: linear-gradient(90deg, grey, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px grey, 0 0 10px grey, 0 0 15px red, 0 0 20px red, 0 0 25px red, 0 0 30px red, 0 0 35px red;
+            }
+            to {
+                text-shadow: 0 0 10px grey, 0 0 20px grey, 0 0 30px red, 0 0 40px red, 0 0 50px red, 0 0 60px red, 0 0 70px red;
+            }
+        }
+    </style>
+
+    <section id="reselling">
+        <h2>Reselling</h2>
+        <p>This section is about reselling all stuff. We provide the best reselling services!</p>
+        <p>You can buy our vendors from our Discord or from our Beacons website. Visit our <a href="https://website.beacons.ai/vaultsupplier">Beacons</a> page for more information.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need further information, please feel free to contact us.</p>
+        <p>Email: <a href="mailto:info@vaultsupplier.com">info@vaultsupplier.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Vaultsupplier. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            var tapEffect = document.createElement('div');
+            tapEffect.className = 'tap-effect';
+            tapEffect.style.left = e.pageX - 20 + 'px';
+            tapEffect.style.top = e.pageY - 20 + 'px';
+            document.body.appendChild(tapEffect);
+            setTimeout(function() {
+                tapEffect.remove();
+            }, 600);
+        });
+    </script>
+</body>
+</html>
